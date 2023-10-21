@@ -223,5 +223,5 @@ xlabel('Time of Lecture');
 % The first inference can be seen through the correlation coefficient of these 
 % data vectors, as the correlation coefficient is around 0.6008. 
 % This is low enough to see that there is very little correlation. 
-% The second inference cn be seen by the fact that all 4 time slots for 
+% The second inference can be seen by the fact that all 4 time slots for 
 % lectures had an average course grade that differed by less than a single full point.
