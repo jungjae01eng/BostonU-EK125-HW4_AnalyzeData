@@ -16,10 +16,12 @@ springcell=struct2cell(Spring)';
 students=cell((fr+sr), 16);
 
 
-% First places the data from the first 13 columns of fallcell into the first 13 columns of students, 
-% so that up until the quiz grades, all "fields" are the same ("fields" is in apostrophes because now 
-% that the data is in a cell array, there are no longer fields).
-% Next, the code initialized the 14th, 15th, and 16th columns as vectors containing all quiz, class, and lab grades respectively.
+% First places the data from the first 13 columns of fallcell into the first 
+% 13 columns of students, so that up until the quiz grades, all "fields" are 
+% the same ("fields" is in apostrophes because now that the data is in a 
+% cell array, there are no longer fields).
+% Next, the code initialized the 14th, 15th, and 16th columns as vectors 
+% containing all quiz, class, and lab grades respectively.
 for i=1:fr
     for j=1:13
         students{i, j}=fallcell{i, j};
@@ -32,8 +34,9 @@ end
 
 % Transfers the data from springcell into the new cell array students, but
 % since the first 319 rows are already full from fallcell, the for loop
-% starts at a higher value. In addition, the spring data has one less quiz
-% grade and lab grade, so this is accounted for.
+% starts at a higher value. 
+% In addition, the spring data has one less quiz grade and lab grade,
+% so this is accounted for.
 for x=(fr+1):length(students)
     for j=1:13
         students{x, j}=springcell{x-319, j};
@@ -46,7 +49,7 @@ end
 
 % Finds all instance of NaN in the data, and since these values cannot be
 % used to compute course grade, the entire students that holds that NaN
-% value is deleted
+% value is deleted.
 z=1;
 while(z<=length(students))
     for t=1:16
@@ -64,7 +67,6 @@ end
 % However, we chose to show the number of students in each class time, 
 % so that we can examine the sample sizes of our later analysis. 
 % This was done with both semesters.
-
 figure();
 
 n=zeros(1,4);
@@ -119,12 +121,15 @@ ylabel('# Students');
 %% Goals & Hypothesis
 % Our goal from this assignment is to find out whether or not a higher 
 % class average has a positive correlation with a student's overall course 
-% grade. We hypothesize that this correlation is in fact true, as going to 
+% grade.
+% We hypothesize that this correlation is in fact true, as going to 
 % more classes and getting good scores on participation and other elements 
 % usually means that one is better prepared for exams and projects. 
+
 % Our second goal is to find which time period of the day is most conducive 
-% to learning EK125. We hypothesize that morning lectures, such as a 9:00 AM 
-% class, will lead to higher overall class and course grades due to the 
+% to learning EK125. 
+% We hypothesize that morning lectures, such as a 9:00 AM class, 
+% will lead to higher overall class and course grades due to the 
 % freshness of the students' minds.
 
 
@@ -199,6 +204,7 @@ timeCourseAvg(3)=mean([courseGrade(X11')]);
 [X12, ~]=find(strcmp(students, '12pm'));
 timeCourseAvg(4)=mean([courseGrade(X12')]);
 
+
 figure();
 
 times=categorical({'9am', '10am', '11am', '12pm'});
@@ -211,11 +217,11 @@ xlabel('Time of Lecture');
 
 
 %% Conclusions
-% The conclusions that we were able to make wer that average class (lecture) 
+% The conclusions that we were able to make were that average class (lecture) 
 % grade has no effect on the overall course grade of an individual students, 
 % and that time of lecture has almost no effect on an individuals course grade.
 % The first inference can be seen through the correlation coefficient of these 
 % data vectors, as the correlation coefficient is around 0.6008. 
 % This is low enough to see that there is very little correlation. 
-% The second inference cn be seen by the fact that all 4 time slows for 
-% lectures had an average course grade tha differed by less than a single full point.
+% The second inference cn be seen by the fact that all 4 time slots for 
+% lectures had an average course grade that differed by less than a single full point.
