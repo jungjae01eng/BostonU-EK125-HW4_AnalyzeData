@@ -13,6 +13,6 @@
   and that time of lecture has almost no effect on an individuals course grade.
   - The first inference can be seen through the correlation coefficient of these data vectors, as the correlation coefficient is around 0.6008.
   This is low enough to see that there is very little correlation.
-  - The second inference cn be seen by the fact that all 4 time slows for lectures had an average course grade tha differed by less than a single full point.
+  - The second inference can be seen by the fact that all 4 time slows for lectures had an average course grade tha differed by less than a single full point.
  
     ![LectureTime vs. Avg Grade](/images/LectureTime_AvgGrade.jpg)
